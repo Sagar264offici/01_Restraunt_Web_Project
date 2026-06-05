@@ -11,14 +11,14 @@ export default function About() {
           <div className="about-images">
             <div className="main-img-wrapper">
               <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" 
+                src="/images/restaurant-interior.png" 
                 alt="Rishikesh Greens Cafe Interior" 
                 className="about-img main-img"
               />
             </div>
             <div className="sub-img-wrapper glass-panel">
               <img 
-                src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=500&auto=format&fit=crop" 
+                src="/images/restaurant-outdoor.png" 
                 alt="Chef preparing fresh vegetarian meal" 
                 className="about-img sub-img"
               />

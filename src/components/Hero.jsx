@@ -6,7 +6,7 @@ const HERO_IMAGES = [
   'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop', // Elegant Table Feast
   'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1600&auto=format&fit=crop', // Golden Dosa
   'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=1600&auto=format&fit=crop', // Rich Paneer & Curries
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop'  // Warm Cafe Ambiance
+  '/images/restaurant-interior.png'  // Real Cafe Interior
 ];
 
 export default function Hero() {

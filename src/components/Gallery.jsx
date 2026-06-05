@@ -14,7 +14,7 @@ const GALLERY_IMAGES = [
     category: 'food'
   },
   {
-    url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop',
+    url: '/images/restaurant-interior.png',
     title: 'Charming Cafe Ambiance',
     category: 'ambiance'
   },
@@ -34,9 +34,9 @@ const GALLERY_IMAGES = [
     category: 'ambiance'
   },
   {
-    url: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1000&auto=format&fit=crop',
-    title: 'Fresh Garden Salad Prep',
-    category: 'food'
+    url: '/images/restaurant-outdoor.png',
+    title: 'Outdoor Garden Pathway',
+    category: 'ambiance'
   },
   {
     url: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=1000&auto=format&fit=crop',

@@ -1,0 +1,227 @@
+.reviews-section {
+  background-color: var(--bg-primary);
+  transition: var(--transition-smooth);
+}
+
+/* Rating Banner */
+.google-rating-banner {
+  max-width: 550px;
+  margin: 0 auto 3.5rem auto;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.banner-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.g-blue { color: #4285F4; }
+.g-red { color: #EA4335; }
+.g-yellow { color: #FBBC05; }
+.g-green { color: #34A853; }
+
+.banner-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stars-row {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.star-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #ccc;
+}
+
+.star-icon.filled {
+  color: #FBBC05;
+  fill: #FBBC05;
+}
+
+.rating-score {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Testimonial Slider */
+.testimonial-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial-slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.testimonial-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3rem 2.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.quote-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--border-glow);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+
+.review-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.review-stars .star-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.review-comment {
+  font-size: 1.15rem;
+  font-family: var(--font-serif);
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.reviewer-info {
+  margin-top: auto;
+}
+
+.reviewer-name {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.reviewer-role {
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-left: 0.4rem;
+}
+
+/* Nav Arrows */
+.slider-nav-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+  z-index: 5;
+}
+
+.slider-nav-btn:hover {
+  background-color: var(--primary-green);
+  color: var(--accent-gold);
+  border-color: var(--primary-green);
+}
+
+/* Dots */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dot:hover,
+.dot.active {
+  background-color: var(--accent-gold);
+  transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+  .google-rating-banner {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+  
+  .banner-stats {
+    align-items: center;
+  }
+
+  .testimonial-slider-container {
+    gap: 0.5rem;
+  }
+
+  .testimonial-slide-wrapper {
+    height: 380px; /* give more height on narrow viewports to avoid text cutoff */
+  }
+
+  .testimonial-card {
+    padding: 2rem 1.25rem;
+  }
+  
+  .slider-nav-btn {
+    display: none; /* Hide arrows on mobile, rely on dots for simple layout */
+  }
+}

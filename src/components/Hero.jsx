@@ -1,0 +1,80 @@
+import React, { useState, useEffect } from 'react';
+import { Compass, Phone, Calendar, Star } from 'lucide-react';
+import './Hero.css';
+
+const HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop', // Elegant Table Feast
+  'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1600&auto=format&fit=crop', // Golden Dosa
+  'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=1600&auto=format&fit=crop', // Rich Paneer & Curries
+  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop'  // Warm Cafe Ambiance
+];
+
+export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section id="home" className="hero-section">
+      {/* Background Slideshow */}
+      {HERO_IMAGES.map((imgUrl, index) => (
+        <div
+          key={imgUrl}
+          className={`hero-bg-slide ${index === currentSlide ? 'active' : ''}`}
+          style={{ backgroundImage: `url(${imgUrl})` }}
+        />
+      ))}
+      
+      {/* Premium Dark Emerald Overlay */}
+      <div className="hero-overlay" />
+
+      {/* Hero Content */}
+      <div className="container hero-container">
+        <div className="hero-content">
+          <div className="rating-badge fade-in-up">
+            <Star className="star-icon" />
+            <span>4.7+ Rated Cafe in Rishikesh</span>
+          </div>
+          
+          <h1 className="hero-title fade-in-up">
+            Fresh Food, Pure Taste,<br />
+            <span className="text-gold">Memorable Moments</span>
+          </h1>
+          
+          <p className="hero-description fade-in-up">
+            Experience the finest vegetarian and healthy multi-cuisine dining nestled in the serene valley of Shyampur, Rishikesh. Handcrafted recipes made with fresh local ingredients.
+          </p>
+
+          <div className="hero-ctas fade-in-up">
+            <a href="#menu" className="btn btn-gold">
+              <Compass className="btn-icon" /> View Menu
+            </a>
+            <a href="tel:+919927355375" className="btn btn-primary">
+              <Phone className="btn-icon" /> Call Now
+            </a>
+            <a 
+              href="https://www.google.com/maps/dir//Rishikesh+Greens+Cafe,+Lane+No.+6,+Khadri+Rd,+near+Paras+Public+School,+Delhi+Farm,+Shyampur,+Rishikesh,+Uttarakhand+249204" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-secondary hero-btn-secondary"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      {/* Visual Bottom Wave / Curve Decor */}
+      <div className="hero-wave">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="var(--bg-primary)" />
+        </svg>
+      </div>
+    </section>
+  );
+}

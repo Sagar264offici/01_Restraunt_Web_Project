@@ -1,0 +1,231 @@
+.menu-section {
+  background-color: var(--bg-primary);
+  transition: var(--transition-smooth);
+}
+
+/* Controls wrapper */
+.menu-controls {
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Search bar */
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-gold);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.menu-search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.25rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.menu-search-input:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--border-glow);
+}
+
+/* Category tab buttons */
+.category-tabs {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.category-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+.category-tab-btn {
+  white-space: nowrap;
+  padding: 0.6rem 1.25rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.category-tab-btn:hover,
+.category-tab-btn.active {
+  background-color: var(--primary-green);
+  color: var(--accent-gold);
+  border-color: var(--primary-green);
+}
+
+/* Grid Layout */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2.25rem;
+}
+
+/* Card Styling */
+.menu-card {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.menu-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.menu-card:hover .menu-card-image {
+  transform: scale(1.05);
+}
+
+.menu-card-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary-green);
+  color: var(--accent-gold);
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--accent-gold);
+}
+
+.menu-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.menu-card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.menu-card-title {
+  display: flex;
+  align-items: center;
+}
+
+.menu-card-title h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.menu-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.menu-card-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single-price-tag {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  font-family: var(--font-serif);
+}
+
+/* Dual Half/Full price tag */
+.dual-price-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.price-divider {
+  color: var(--border-color);
+}
+
+.price-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  font-family: var(--font-serif);
+}
+
+/* No results status panel */
+.menu-no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.no-results-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--accent-gold);
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .menu-controls {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,141 @@
+.events-section {
+  background-color: var(--bg-secondary);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.events-bg-accent {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.03);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.events-bg-accent.left {
+  top: 10%;
+  left: -100px;
+}
+
+.events-bg-accent.right {
+  bottom: 10%;
+  right: -100px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.event-card {
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: var(--primary-green);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.event-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.event-title {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.event-capacity {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-gold);
+  background: rgba(197, 160, 89, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.event-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Call to action booking banner */
+.events-booking-banner {
+  padding: 2.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.banner-content {
+  flex: 1;
+}
+
+.banner-title {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.banner-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.banner-btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+  .events-booking-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .banner-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

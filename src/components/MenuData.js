@@ -30,7 +30,7 @@ export const MENU_ITEMS = [
     description: "Paneer and potato dumplings simmered in rich, sweet cream and cashew-nut gravy.",
     isVeg: true,
     tag: "Best Seller",
-    image: "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?w=500&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&auto=format&fit=crop&q=80"
   },
   {
     name: "Kadhai Paneer",
@@ -63,7 +63,7 @@ export const MENU_ITEMS = [
     description: "Fragrant basmati rice cooked with garden-fresh vegetables and aromatic spices.",
     isVeg: true,
     tag: "Classic",
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=80"
   },
   {
     name: "Garlic Butter Naan",
@@ -74,7 +74,7 @@ export const MENU_ITEMS = [
     category: "north-indian",
     description: "Leavened flatbread infused with minced fresh garlic and baked in tandoor.",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1626776822946-455ccc68884d?w=500&auto=format&fit=crop&q=80"
   },
   {
     name: "Tandoori Paneer Tikka",
@@ -151,7 +151,7 @@ export const MENU_ITEMS = [
     description: "Crispy flaky pastries filled with spiced potato and green peas, served with mint and tamarind chutneys.",
     isVeg: true,
     tag: "Must Try",
-    image: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=500&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=80"
   },
   {
     name: "Honey Chilli Potato",

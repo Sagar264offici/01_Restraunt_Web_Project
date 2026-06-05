@@ -3,10 +3,10 @@ import { Compass, Phone, Calendar, Star } from 'lucide-react';
 import './Hero.css';
 
 const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop', // Elegant Table Feast
-  'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1600&auto=format&fit=crop', // Golden Dosa
-  'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=1600&auto=format&fit=crop', // Rich Paneer & Curries
-  '/images/restaurant-interior.png'  // Real Cafe Interior
+  '/images/restaurant-interior.png',  // Real Cafe Interior
+  'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=1600&auto=format&fit=crop', // Paneer Butter Masala
+  'https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1600&auto=format&fit=crop', // Malai Kofta Curry
+  '/images/restaurant-outdoor.png'  // Real Outdoor Area
 ];
 
 export default function Hero() {

@@ -4,12 +4,12 @@ import './Gallery.css';
 
 const GALLERY_IMAGES = [
   {
-    url: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=1000&auto=format&fit=crop',
-    title: 'Chef Special Paneer Lababdar',
+    url: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=1000&auto=format&fit=crop',
+    title: 'Paneer Butter Masala',
     category: 'food'
   },
   {
-    url: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1000&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1630383249896-424e482df921?q=80&w=1000&auto=format&fit=crop',
     title: 'Crispy Masala Dosa',
     category: 'food'
   },
@@ -19,19 +19,14 @@ const GALLERY_IMAGES = [
     category: 'ambiance'
   },
   {
-    url: 'https://images.unsplash.com/photo-1546549032-9571cd6b27df?q=80&w=1000&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1000&auto=format&fit=crop',
     title: 'Creamy White Sauce Pasta',
     category: 'food'
   },
   {
-    url: 'https://images.unsplash.com/photo-1541518763669-27fef04b14ea?q=80&w=1000&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=1000&auto=format&fit=crop',
     title: 'Crispy Punjabi Samosa',
     category: 'food'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop',
-    title: 'Family Gathering Area',
-    category: 'ambiance'
   },
   {
     url: '/images/restaurant-outdoor.png',
@@ -39,8 +34,13 @@ const GALLERY_IMAGES = [
     category: 'ambiance'
   },
   {
-    url: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=1000&auto=format&fit=crop',
-    title: 'Spicy Chilli Paneer Wok',
+    url: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1000&auto=format&fit=crop',
+    title: 'Aromatic Veg Biryani',
+    category: 'food'
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1000&auto=format&fit=crop',
+    title: 'Royal Malai Kofta',
     category: 'food'
   }
 ];

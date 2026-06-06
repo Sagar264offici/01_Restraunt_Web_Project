@@ -48,7 +48,15 @@ export default function Reviews() {
     setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
   };
 
+  const initialScrollSkip = useRef(true);
+
   useEffect(() => {
+    // Skip scrolling on initial mount to avoid jumping users to reviews
+    if (initialScrollSkip.current) {
+      initialScrollSkip.current = false;
+      return;
+    }
+
     const activeSlide = slideRefs.current[activeIndex];
     if (activeSlide) {
       activeSlide.scrollIntoView({

@@ -32,6 +32,7 @@ const REVIEWS = [
 export default function Reviews() {
   const [activeIndex, setActiveIndex] = useState(0);
   const slideRefs = useRef([]);
+  const sliderWrapperRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -51,18 +52,25 @@ export default function Reviews() {
   const initialScrollSkip = useRef(true);
 
   useEffect(() => {
+    if (!sliderWrapperRef.current) return;
+
     // Skip scrolling on initial mount to avoid jumping users to reviews
     if (initialScrollSkip.current) {
       initialScrollSkip.current = false;
       return;
     }
 
+    const wrapper = sliderWrapperRef.current;
     const activeSlide = slideRefs.current[activeIndex];
+
     if (activeSlide) {
-      activeSlide.scrollIntoView({
+      const targetLeft = Math.max(
+        0,
+        activeSlide.offsetLeft - (wrapper.clientWidth - activeSlide.clientWidth) / 2
+      );
+      wrapper.scrollTo({
+        left: targetLeft,
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
   }, [activeIndex]);
@@ -110,7 +118,7 @@ export default function Reviews() {
             <ChevronLeft />
           </button>
 
-          <div className="testimonial-slide-wrapper">
+          <div ref={sliderWrapperRef} className="testimonial-slide-wrapper">
             {REVIEWS.map((rev, idx) => (
               <div
                 key={idx}

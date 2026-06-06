@@ -6,6 +6,7 @@ import './Menu.css';
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [showFullMenu, setShowFullMenu] = useState(false);
 
   // Filter items based on active tab AND search query
   const filteredItems = MENU_ITEMS.filter((item) => {
@@ -14,6 +15,10 @@ export default function Menu() {
                           (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
+  const previewItems = filteredItems.slice(0, 4);
+  const hasMoreItems = filteredItems.length > previewItems.length;
+
+  const fullItems = showFullMenu ? filteredItems : [];
 
   return (
     <section id="menu" className="menu-section">
@@ -51,7 +56,7 @@ export default function Menu() {
 
         {/* Grid List */}
         <div className="menu-grid">
-          {filteredItems.map((item, idx) => (
+          {previewItems.map((item, idx) => (
             <div key={idx} className="menu-card glass-panel">
               <div className="menu-card-image-wrapper">
                 <img 
@@ -88,6 +93,68 @@ export default function Menu() {
             </div>
           ))}
         </div>
+
+        {hasMoreItems && (
+          <div className="menu-preview-footer">
+            <div className="menu-preview-note glass-panel">
+              <p>Only the top dishes are shown on this page to keep scrolling low. Tap below to see the full menu page with every dish.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowFullMenu(true)}
+              className="btn btn-gold menu-full-link"
+            >
+              Open Full Menu Listing
+            </button>
+            </a>
+          </div>
+
+        {showFullMenu && (
+          <div id="menu-full" className="menu-full-section">
+            <div className="section-header">
+              <h2>Full Menu</h2>
+              <p>Explore the complete list of dishes across all categories.</p>
+            </div>
+
+            <div className="menu-grid full-menu-grid">
+              {fullItems.map((item, idx) => (
+                <div key={`full-${idx}`} className="menu-card glass-panel">
+                  <div className="menu-card-image-wrapper">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="menu-card-image"
+                      loading="lazy"
+                    />
+                    {item.tag && <span className="menu-card-tag">{item.tag}</span>}
+                  </div>
+                  <div className="menu-card-content">
+                    <div className="menu-card-title-row">
+                      <div className="menu-card-title">
+                        <span className="badge-veg" title="Pure Vegetarian"></span>
+                        <h3>{item.name}</h3>
+                      </div>
+                      <span className="menu-category-label">{item.category.replace('-', ' ')}</span>
+                    </div>
+                    <p className="menu-card-desc">{item.description || "Freshly cooked to order using authentic local spices and premium recipes."}</p>
+                    <div className="menu-card-footer">
+                      {item.isDual ? (
+                        <div className="dual-price-tag">
+                          <span className="price-label">Half: <span className="price-val">{item.halfPrice}</span></span>
+                          <span className="price-divider">|</span>
+                          <span className="price-label">Full: <span className="price-val">{item.fullPrice}</span></span>
+                        </div>
+                      ) : (
+                        <span className="single-price-tag">{item.price}</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        )}
 
         {filteredItems.length === 0 && (
           <div className="menu-no-results glass-panel">

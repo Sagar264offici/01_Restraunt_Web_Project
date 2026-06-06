@@ -23,10 +23,18 @@
   letter-spacing: -0.03em;
 }
 
-.g-blue { color: #4285F4; }
-.g-red { color: #EA4335; }
-.g-yellow { color: #FBBC05; }
-.g-green { color: #34A853; }
+.g-blue {
+  color: #4285f4;
+}
+.g-red {
+  color: #ea4335;
+}
+.g-yellow {
+  color: #fbbc05;
+}
+.g-green {
+  color: #34a853;
+}
 
 .banner-stats {
   display: flex;
@@ -46,8 +54,8 @@
 }
 
 .star-icon.filled {
-  color: #FBBC05;
-  fill: #FBBC05;
+  color: #fbbc05;
+  fill: #fbbc05;
 }
 
 .rating-score {
@@ -66,35 +74,41 @@
   position: relative;
 }
 
+/* Swipe-enabled review carousel */
 .testimonial-slide-wrapper {
   position: relative;
   width: 100%;
-  height: 300px;
-  overflow: hidden;
+  overflow-x: auto;
+  display: flex;
+  gap: 1.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
 }
 
 .testimonial-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 3rem 2.5rem;
-  border-radius: 12px;
+  position: relative;
+  min-width: 100%;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
-}
-
-.testimonial-card.active {
+  align-items: flex-start;
+  text-align: left;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   opacity: 1;
   visibility: visible;
-  transform: translateX(0);
+  transform: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .quote-icon {
@@ -204,23 +218,25 @@
     padding: 1.25rem;
     border-radius: 20px;
   }
-  
+
   .banner-stats {
     align-items: center;
   }
 
   .testimonial-slider-container {
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .testimonial-slide-wrapper {
-    height: 380px; /* give more height on narrow viewports to avoid text cutoff */
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
   }
 
   .testimonial-card {
-    padding: 2rem 1.25rem;
+    padding: 1.75rem 1.25rem;
   }
-  
+
   .slider-nav-btn {
     display: none; /* Hide arrows on mobile, rely on dots for simple layout */
   }

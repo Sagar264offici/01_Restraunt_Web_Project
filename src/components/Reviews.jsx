@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
-import './Reviews.css';
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import "./Reviews.css";
 
 const REVIEWS = [
   {
@@ -8,26 +8,30 @@ const REVIEWS = [
     role: "Local Guide",
     stars: 5,
     date: "1 week ago",
-    comment: "Rishikesh Greens Cafe is an absolute gem in Shyampur! The Paneer Butter Masala and Butter Naan were incredibly delicious. The fact that they have a strictly vegetarian, hygienic kitchen gives complete peace of mind. Highly recommended!"
+    comment:
+      "Rishikesh Greens Cafe is an absolute gem in Shyampur! The Paneer Butter Masala and Butter Naan were incredibly delicious. The fact that they have a strictly vegetarian, hygienic kitchen gives complete peace of mind. Highly recommended!",
   },
   {
     name: "Priyanka Joshi",
     role: "Travel Blogger",
     stars: 5,
     date: "2 weeks ago",
-    comment: "Stumbled upon this cafe on our way back from Haridwar. The Masala Dosa is spectacular and the service is lightning fast. Loved the peaceful green garden atmosphere and their attention to hygiene. Definitely a 5-star experience!"
+    comment:
+      "Stumbled upon this cafe on our way back from Haridwar. The Masala Dosa is spectacular and the service is lightning fast. Loved the peaceful green garden atmosphere and their attention to hygiene. Definitely a 5-star experience!",
   },
   {
     name: "Rajesh Verma",
     role: "Family Diner",
     stars: 5,
     date: "1 month ago",
-    comment: "Amazing food and very friendly staff. We ordered Malai Kofta, Dal Makhni, and their famous Kurkure Momos. Everything tasted fresh, rich, and authentic. The seating space is comfortable for kids. Our go-to spot in Rishikesh."
-  }
+    comment:
+      "Amazing food and very friendly staff. We ordered Malai Kofta, Dal Makhni, and their famous Kurkure Momos. Everything tasted fresh, rich, and authentic. The seating space is comfortable for kids. Our go-to spot in Rishikesh.",
+  },
 ];
 
 export default function Reviews() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const slideRefs = useRef([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -44,12 +48,26 @@ export default function Reviews() {
     setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
   };
 
+  useEffect(() => {
+    const activeSlide = slideRefs.current[activeIndex];
+    if (activeSlide) {
+      activeSlide.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeIndex]);
+
   return (
     <section id="reviews" className="reviews-section">
       <div className="container">
         <div className="section-header">
           <h2>Guest Testimonials</h2>
-          <p>Read what our happy diners say about their experiences at Rishikesh Greens Cafe.</p>
+          <p>
+            Read what our happy diners say about their experiences at Rishikesh
+            Greens Cafe.
+          </p>
         </div>
 
         {/* Google Rating Banner */}
@@ -68,21 +86,28 @@ export default function Reviews() {
                 <Star key={i} className="star-icon filled" />
               ))}
             </div>
-            <span className="rating-score"><strong>4.7 / 5.0</strong> rating based on 340+ reviews</span>
+            <span className="rating-score">
+              <strong>4.7 / 5.0</strong> rating based on 340+ reviews
+            </span>
           </div>
         </div>
 
         {/* Testimonial Slider */}
         <div className="testimonial-slider-container">
-          <button className="slider-nav-btn prev" onClick={handlePrev} aria-label="Previous review">
+          <button
+            className="slider-nav-btn prev"
+            onClick={handlePrev}
+            aria-label="Previous review"
+          >
             <ChevronLeft />
           </button>
-          
+
           <div className="testimonial-slide-wrapper">
             {REVIEWS.map((rev, idx) => (
-              <div 
-                key={idx} 
-                className={`testimonial-card glass-panel ${idx === activeIndex ? 'active' : ''}`}
+              <div
+                key={idx}
+                className={`testimonial-card glass-panel ${idx === activeIndex ? "active" : ""}`}
+                ref={(el) => (slideRefs.current[idx] = el)}
               >
                 <Quote className="quote-icon" />
                 <div className="review-stars">
@@ -100,18 +125,22 @@ export default function Reviews() {
             ))}
           </div>
 
-          <button className="slider-nav-btn next" onClick={handleNext} aria-label="Next review">
+          <button
+            className="slider-nav-btn next"
+            onClick={handleNext}
+            aria-label="Next review"
+          >
             <ChevronRight />
           </button>
         </div>
-        
+
         {/* Slider Pagination Dots */}
         <div className="slider-dots">
           {REVIEWS.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`dot ${idx === activeIndex ? 'active' : ''}`}
+              className={`dot ${idx === activeIndex ? "active" : ""}`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}

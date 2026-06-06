@@ -98,6 +98,111 @@
   width: 100%;
 }
 
+.nav-item-dropdown {
+  position: relative;
+}
+
+.menu-preview-dropdown {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(12px);
+  min-width: 260px;
+  max-width: 320px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+  z-index: 500;
+}
+
+.menu-preview-dropdown.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dropdown-title {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.dropdown-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.dropdown-link {
+  display: inline-flex;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.dropdown-link:hover {
+  background: var(--accent-gold);
+  color: #0c2c1a;
+}
+
+.dropdown-full-menu {
+  width: 100%;
+  justify-content: center;
+}
+
+.mobile-menu-preview {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.mobile-preview-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.mobile-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mobile-preview-link {
+  display: inline-flex;
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(12, 44, 26, 0.06);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.mobile-preview-link:hover {
+  background: rgba(12, 44, 26, 0.12);
+}
+
+@media (max-width: 992px) {
+  .menu-preview-dropdown {
+    display: none;
+  }
+}
+
 /* Controls */
 .header-controls {
   display: flex;

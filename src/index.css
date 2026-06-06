@@ -114,20 +114,20 @@ main {
 
 /* Section styling */
 section {
-  padding: 5rem 0;
+  padding: 4.25rem 0;
   position: relative;
   scroll-margin-top: 110px;
 }
 
 @media (max-width: 1024px) {
   section {
-    padding: 4rem 0;
+    padding: 3.25rem 0;
   }
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 }
 

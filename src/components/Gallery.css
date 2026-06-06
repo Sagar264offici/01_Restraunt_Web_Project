@@ -224,10 +224,38 @@
 }
 
 @media (max-width: 768px) {
-  .gallery-masonry {
-    columns: 2;
+  .gallery-filters {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
   }
-  
+
+  .filter-btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .gallery-masonry {
+    columns: 1;
+    column-gap: 1rem;
+  }
+
+  .gallery-item {
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+
+  .gallery-item-overlay {
+    padding: 1rem;
+  }
+
+  .gallery-item-title {
+    font-size: 1.1rem;
+  }
+
+  .gallery-item-category {
+    font-size: 0.7rem;
+  }
+
   .lightbox-content {
     gap: 0.5rem;
     width: 95%;
@@ -236,7 +264,7 @@
   .lightbox-image-container {
     max-width: 90%;
   }
-  
+
   .lightbox-nav-btn {
     width: 40px;
     height: 40px;
@@ -248,7 +276,7 @@
   .gallery-masonry {
     columns: 1;
   }
-  
+
   .lightbox-close-btn {
     top: 1rem;
     right: 1rem;

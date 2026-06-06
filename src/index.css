@@ -126,8 +126,16 @@ section {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
   section {
-    padding: 2.5rem 0;
+    padding: 3rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.2rem;
   }
 }
 

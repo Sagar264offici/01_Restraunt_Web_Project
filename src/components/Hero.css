@@ -221,11 +221,12 @@
 
 @media (max-width: 768px) {
   .hero-container {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   .hero-content {
     padding: 0 0.75rem;
+    width: 100%;
   }
 
   .hero-title {
@@ -253,7 +254,7 @@
   }
 
   .hero-tour-strip {
-    padding: 0 1rem;
+    padding: 0 0.75rem;
   }
 
   .hero-section {

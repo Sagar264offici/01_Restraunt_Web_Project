@@ -220,26 +220,40 @@
 }
 
 @media (max-width: 768px) {
+  .hero-container {
+    padding: 0 1.5rem;
+  }
+
+  .hero-content {
+    padding: 0 0.75rem;
+  }
+
   .hero-title {
     font-size: 2.4rem;
+    margin-bottom: 1.8rem;
   }
 
   .hero-description {
     font-size: 1rem;
     max-width: 100%;
+    margin-bottom: 2rem;
   }
 
   .hero-ctas {
     flex-direction: column;
     width: 100%;
     max-width: 100%;
-    gap: 0.85rem;
+    gap: 1rem;
   }
 
   .hero-ctas .btn {
     width: 100%;
     justify-content: center;
-    padding: 1rem 1.2rem;
+    padding: 1rem 1.3rem;
+  }
+
+  .hero-tour-strip {
+    padding: 0 1rem;
   }
 
   .hero-section {

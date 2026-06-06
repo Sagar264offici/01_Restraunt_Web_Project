@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 :root {
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Inter', sans-serif;
-  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
   /* Brand colors - Light Theme (default) */
-  --bg-primary: #FAF8F2;      /* Elegant Warm Cream */
-  --bg-secondary: #F4EFE0;    /* Muted Cream */
+  --bg-primary: #faf8f2; /* Elegant Warm Cream */
+  --bg-secondary: #f4efe0; /* Muted Cream */
   --bg-card: rgba(255, 255, 255, 0.8);
-  --text-primary: #0B2114;    /* Deep Forest Green-Black */
-  --text-secondary: #3D5A47;  /* Muted Sage */
-  --accent-gold: #C5A059;     /* Warm Matte Gold */
-  --accent-gold-hover: #A8833E;
-  --primary-green: #0C2C1A;   /* Royal Deep Green */
-  --primary-green-light: #18442B;
+  --text-primary: #0b2114; /* Deep Forest Green-Black */
+  --text-secondary: #3d5a47; /* Muted Sage */
+  --accent-gold: #c5a059; /* Warm Matte Gold */
+  --accent-gold-hover: #a8833e;
+  --primary-green: #0c2c1a; /* Royal Deep Green */
+  --primary-green-light: #18442b;
   --border-color: rgba(12, 44, 26, 0.08);
   --border-glow: rgba(197, 160, 89, 0.3);
   --shadow-sm: 0 2px 8px rgba(12, 44, 26, 0.05);
@@ -21,25 +21,25 @@
   --shadow-lg: 0 16px 40px rgba(12, 44, 26, 0.12);
   --glass-bg: rgba(255, 255, 255, 0.65);
   --glass-border: rgba(255, 255, 255, 0.4);
-  --whatsapp-color: #25D366;
+  --whatsapp-color: #25d366;
   --card-blur: blur(12px);
   --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   --transition-fast: all 0.2s ease;
-  
+
   --max-width: 1200px;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   /* Brand colors - Dark Theme */
-  --bg-primary: #06150C;      /* Rich Jade Obsidian */
-  --bg-secondary: #0A2013;    /* Mid Deep Forest */
+  --bg-primary: #06150c; /* Rich Jade Obsidian */
+  --bg-secondary: #0a2013; /* Mid Deep Forest */
   --bg-card: rgba(10, 32, 19, 0.6);
-  --text-primary: #F7F5EC;    /* Off-white Cream */
-  --text-secondary: #8DA897;  /* Soft Grey-Green */
-  --accent-gold: #DFBA73;     /* Brighter Gold for dark contrast */
-  --accent-gold-hover: #F2D291;
-  --primary-green: #113F26;   /* Rich Emerald */
-  --primary-green-light: #1A5435;
+  --text-primary: #f7f5ec; /* Off-white Cream */
+  --text-secondary: #8da897; /* Soft Grey-Green */
+  --accent-gold: #dfba73; /* Brighter Gold for dark contrast */
+  --accent-gold-hover: #f2d291;
+  --primary-green: #113f26; /* Rich Emerald */
+  --primary-green-light: #1a5435;
   --border-color: rgba(247, 245, 236, 0.08);
   --border-glow: rgba(223, 186, 115, 0.2);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -66,7 +66,9 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -87,7 +89,12 @@ body {
 }
 
 /* Typography Utility Classes */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.2;
@@ -96,41 +103,53 @@ h1, h2, h3, h4, h5, h6 {
 /* Global Container */
 .container {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: min(var(--max-width), 1180px);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
+}
+
+main {
+  padding-top: 90px;
 }
 
 /* Section styling */
 section {
-  padding: 6rem 0;
+  padding: 5rem 0;
   position: relative;
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding: 4rem 0;
+  }
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 }
 
 /* Common Section Headers */
 .section-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem auto;
+  max-width: 680px;
+  margin: 0 auto 3.2rem auto;
+  padding: 0 0.5rem;
 }
 
 .section-header h2 {
-  font-size: 2.8rem;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
   color: var(--text-primary);
   position: relative;
   display: inline-block;
-  padding-bottom: 1.2rem;
-  margin-bottom: 1rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 0.9rem;
 }
 
 .section-header h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -141,7 +160,7 @@ section {
 }
 
 .section-header h2::before {
-  content: '♦';
+  content: "♦";
   position: absolute;
   bottom: -9px;
   left: 50%;
@@ -180,7 +199,7 @@ section {
 
 .btn-primary {
   background-color: var(--primary-green);
-  color: #FAF8F2 !important;
+  color: #faf8f2 !important;
   border: 1px solid var(--primary-green);
   box-shadow: 0 4px 15px rgba(12, 44, 26, 0.2);
 }
@@ -206,17 +225,24 @@ section {
 
 .btn-gold {
   background-color: var(--accent-gold);
-  color: #0C2C1A !important;
+  color: #0c2c1a !important;
   border: 1px solid var(--accent-gold);
   box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
 }
 
 .btn-gold:hover {
   background-color: var(--primary-green);
-  color: #FAF8F2 !important;
+  color: #faf8f2 !important;
   border-color: var(--primary-green);
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(12, 44, 26, 0.3);
+}
+
+.btn,
+.btn-gold,
+.btn-primary,
+.btn-secondary {
+  transition: var(--transition-smooth);
 }
 
 /* Glassmorphism Panel */
@@ -262,14 +288,26 @@ section {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pulseGold {
-  0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+  }
 }
 
 /* Utility active states and badges */
@@ -287,7 +325,7 @@ section {
 }
 
 .badge-veg::before {
-  content: '';
+  content: "";
   display: block;
   width: 8px;
   height: 8px;

@@ -1,6 +1,6 @@
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,9 @@
 .hero-bg-slide.active {
   opacity: 1;
   transform: scale(1);
-  transition: opacity 1.8s ease-in-out, transform 6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition:
+    opacity 1.8s ease-in-out,
+    transform 6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Emerald luxury shadow overlay */
@@ -54,10 +56,11 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  padding: 0 1rem;
 }
 
 .hero-content {
-  max-width: 850px;
+  max-width: 820px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,26 +170,42 @@
   animation-fill-mode: forwards;
 }
 
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3.4rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
-  
+
   .hero-description {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    max-width: 100%;
   }
 
   .hero-ctas {
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
+    gap: 0.85rem;
   }
-  
+
   .hero-ctas .btn {
     width: 100%;
+    justify-content: center;
+    padding: 1rem 1.2rem;
   }
 
   .hero-section {
     padding-top: 80px;
+    min-height: 78vh;
   }
 }

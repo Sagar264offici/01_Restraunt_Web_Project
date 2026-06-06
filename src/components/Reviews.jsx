@@ -66,7 +66,8 @@ export default function Reviews() {
     if (activeSlide) {
       const targetLeft = Math.max(
         0,
-        activeSlide.offsetLeft - (wrapper.clientWidth - activeSlide.clientWidth) / 2
+        activeSlide.offsetLeft -
+          (wrapper.clientWidth - activeSlide.clientWidth) / 2,
       );
       wrapper.scrollTo({
         left: targetLeft,

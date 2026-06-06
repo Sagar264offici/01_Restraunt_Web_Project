@@ -1,18 +1,21 @@
-import { useState } from 'react';
-import { Search, Info } from 'lucide-react';
-import { MENU_CATEGORIES, MENU_ITEMS } from './MenuData';
-import './Menu.css';
+import { Info, Search } from "lucide-react";
+import { useState } from "react";
+import "./Menu.css";
+import { MENU_CATEGORIES, MENU_ITEMS } from "./MenuData";
 
 export default function Menu() {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
   const [showFullMenu, setShowFullMenu] = useState(false);
 
   // Filter items based on active tab AND search query
   const filteredItems = MENU_ITEMS.filter((item) => {
-    const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesCategory =
+      activeCategory === "all" || item.category === activeCategory;
+    const matchesSearch =
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (item.description &&
+        item.description.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
   const previewItems = filteredItems.slice(0, 4);
@@ -25,16 +28,19 @@ export default function Menu() {
       <div className="container">
         <div className="section-header">
           <h2>Our Culinary Menu</h2>
-          <p>Carefully prepared with pure local ingredients and traditional aromatic recipes.</p>
+          <p>
+            Carefully prepared with pure local ingredients and traditional
+            aromatic recipes.
+          </p>
         </div>
 
         {/* Search & Filter Controls */}
         <div className="menu-controls glass-panel">
           <div className="search-bar-wrapper">
             <Search className="search-icon" />
-            <input 
-              type="text" 
-              placeholder="Search paneer, dosa, pasta, mocktails..." 
+            <input
+              type="text"
+              placeholder="Search paneer, dosa, pasta, mocktails..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="menu-search-input"
@@ -46,7 +52,7 @@ export default function Menu() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`category-tab-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                className={`category-tab-btn ${activeCategory === cat.id ? "active" : ""}`}
               >
                 {cat.name}
               </button>
@@ -59,15 +65,15 @@ export default function Menu() {
           {previewItems.map((item, idx) => (
             <div key={idx} className="menu-card glass-panel">
               <div className="menu-card-image-wrapper">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
+                <img
+                  src={item.image}
+                  alt={item.name}
                   className="menu-card-image"
                   loading="lazy"
                 />
                 {item.tag && <span className="menu-card-tag">{item.tag}</span>}
               </div>
-              
+
               <div className="menu-card-content">
                 <div className="menu-card-title-row">
                   <div className="menu-card-title">
@@ -76,14 +82,23 @@ export default function Menu() {
                   </div>
                 </div>
 
-                <p className="menu-card-desc">{item.description || "Freshly cooked to order using authentic local spices and premium recipes."}</p>
-                
+                <p className="menu-card-desc">
+                  {item.description ||
+                    "Freshly cooked to order using authentic local spices and premium recipes."}
+                </p>
+
                 <div className="menu-card-footer">
                   {item.isDual ? (
                     <div className="dual-price-tag">
-                      <span className="price-label">Half: <span className="price-val">{item.halfPrice}</span></span>
+                      <span className="price-label">
+                        Half:{" "}
+                        <span className="price-val">{item.halfPrice}</span>
+                      </span>
                       <span className="price-divider">|</span>
-                      <span className="price-label">Full: <span className="price-val">{item.fullPrice}</span></span>
+                      <span className="price-label">
+                        Full:{" "}
+                        <span className="price-val">{item.fullPrice}</span>
+                      </span>
                     </div>
                   ) : (
                     <span className="single-price-tag">{item.price}</span>
@@ -97,7 +112,10 @@ export default function Menu() {
         {hasMoreItems && (
           <div className="menu-preview-footer">
             <div className="menu-preview-note glass-panel">
-              <p>Only the top dishes are shown on this page to keep scrolling low. Tap below to see the full menu page with every dish.</p>
+              <p>
+                Only the top dishes are shown on this page to keep scrolling
+                low. Tap below to see the full menu page with every dish.
+              </p>
             </div>
             <button
               type="button"
@@ -106,8 +124,8 @@ export default function Menu() {
             >
               Open Full Menu Listing
             </button>
-            </a>
           </div>
+        )}
 
         {showFullMenu && (
           <div id="menu-full" className="menu-full-section">
@@ -120,29 +138,45 @@ export default function Menu() {
               {fullItems.map((item, idx) => (
                 <div key={`full-${idx}`} className="menu-card glass-panel">
                   <div className="menu-card-image-wrapper">
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
+                    <img
+                      src={item.image}
+                      alt={item.name}
                       className="menu-card-image"
                       loading="lazy"
                     />
-                    {item.tag && <span className="menu-card-tag">{item.tag}</span>}
+                    {item.tag && (
+                      <span className="menu-card-tag">{item.tag}</span>
+                    )}
                   </div>
                   <div className="menu-card-content">
                     <div className="menu-card-title-row">
                       <div className="menu-card-title">
-                        <span className="badge-veg" title="Pure Vegetarian"></span>
+                        <span
+                          className="badge-veg"
+                          title="Pure Vegetarian"
+                        ></span>
                         <h3>{item.name}</h3>
                       </div>
-                      <span className="menu-category-label">{item.category.replace('-', ' ')}</span>
+                      <span className="menu-category-label">
+                        {item.category.replace("-", " ")}
+                      </span>
                     </div>
-                    <p className="menu-card-desc">{item.description || "Freshly cooked to order using authentic local spices and premium recipes."}</p>
+                    <p className="menu-card-desc">
+                      {item.description ||
+                        "Freshly cooked to order using authentic local spices and premium recipes."}
+                    </p>
                     <div className="menu-card-footer">
                       {item.isDual ? (
                         <div className="dual-price-tag">
-                          <span className="price-label">Half: <span className="price-val">{item.halfPrice}</span></span>
+                          <span className="price-label">
+                            Half:{" "}
+                            <span className="price-val">{item.halfPrice}</span>
+                          </span>
                           <span className="price-divider">|</span>
-                          <span className="price-label">Full: <span className="price-val">{item.fullPrice}</span></span>
+                          <span className="price-label">
+                            Full:{" "}
+                            <span className="price-val">{item.fullPrice}</span>
+                          </span>
                         </div>
                       ) : (
                         <span className="single-price-tag">{item.price}</span>
@@ -154,12 +188,14 @@ export default function Menu() {
             </div>
           </div>
         )}
-        )}
 
         {filteredItems.length === 0 && (
           <div className="menu-no-results glass-panel">
             <Info className="no-results-icon" />
-            <p>No dishes found matching your search. Try adjusting your category filter or search keywords!</p>
+            <p>
+              No dishes found matching your search. Try adjusting your category
+              filter or search keywords!
+            </p>
           </div>
         )}
       </div>

@@ -67,30 +67,33 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="gallery-section">
+    <section id="gallery" className="gallery-section" aria-labelledby="gallery-title">
       <div className="container">
         <div className="section-header">
-          <h2>Visual Gallery</h2>
+          <h2 id="gallery-title">Visual Gallery</h2>
           <p>A glimpse inside our warm cafe, hygienic kitchen, and premium vegetarian recipes.</p>
         </div>
 
         {/* Gallery Filters */}
-        <div className="gallery-filters">
+        <div className="gallery-filters" role="group" aria-label="Gallery filter options">
           <button 
             onClick={() => setFilter('all')} 
             className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+            aria-pressed={filter === 'all'}
           >
             All Photos
           </button>
           <button 
             onClick={() => setFilter('food')} 
             className={`filter-btn ${filter === 'food' ? 'active' : ''}`}
+            aria-pressed={filter === 'food'}
           >
             Food Photography
           </button>
           <button 
             onClick={() => setFilter('ambiance')} 
             className={`filter-btn ${filter === 'ambiance' ? 'active' : ''}`}
+            aria-pressed={filter === 'ambiance'}
           >
             Interior & Ambiance
           </button>
@@ -99,41 +102,55 @@ export default function Gallery() {
         {/* Grid List */}
         <div className="gallery-masonry">
           {filteredImages.map((img, idx) => (
-            <div 
+            <figure 
               key={idx} 
               className="gallery-item"
               onClick={() => openLightbox(idx)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && openLightbox(idx)}
             >
-              <img src={img.url} alt={img.title} className="gallery-image" />
+              <img 
+                src={img.url} 
+                alt={img.title}
+                className="gallery-image"
+                loading="lazy"
+                width="400"
+                height="300"
+              />
               <div className="gallery-item-overlay">
-                <ZoomIn className="zoom-icon" />
-                <h3 className="gallery-item-title">{img.title}</h3>
-                <span className="gallery-item-category">{img.category}</span>
+                <ZoomIn className="zoom-icon" aria-hidden="true" />
+                <figcaption className="gallery-item-caption">
+                  <h3 className="gallery-item-title">{img.title}</h3>
+                  <span className="gallery-item-category">{img.category}</span>
+                </figcaption>
               </div>
-            </div>
+            </figure>
           ))}
         </div>
 
         {/* Lightbox Modal */}
         {lightboxIndex !== null && (
-          <div className="lightbox" onClick={closeLightbox}>
-            <button className="lightbox-close-btn" onClick={closeLightbox}>
+          <div className="lightbox" onClick={closeLightbox} role="dialog" aria-modal="true">
+            <button className="lightbox-close-btn" onClick={closeLightbox} aria-label="Close image viewer">
               <X />
             </button>
             
             <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <button className="lightbox-nav-btn prev" onClick={prevImage}>&#10094;</button>
-              <div className="lightbox-image-container">
+              <button className="lightbox-nav-btn prev" onClick={prevImage} aria-label="Previous image">&#10094;</button>
+              <figure className="lightbox-image-container">
                 <img 
                   src={filteredImages[lightboxIndex].url} 
                   alt={filteredImages[lightboxIndex].title} 
                   className="lightbox-image"
+                  width="1000"
+                  height="700"
                 />
-                <div className="lightbox-caption">
+                <figcaption className="lightbox-caption">
                   {filteredImages[lightboxIndex].title}
-                </div>
-              </div>
-              <button className="lightbox-nav-btn next" onClick={nextImage}>&#10095;</button>
+                </figcaption>
+              </figure>
+              <button className="lightbox-nav-btn next" onClick={nextImage} aria-label="Next image">&#10095;</button>
             </div>
           </div>
         )}

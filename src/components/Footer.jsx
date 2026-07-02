@@ -1,6 +1,7 @@
 import React from 'react';
-import { Phone, MapPin, MessageCircle, Leaf } from 'lucide-react';
+import { Phone, MapPin, MessageCircle } from 'lucide-react';
 import './Footer.css';
+import LeafLogo from './LeafLogo';
 
 // Self-contained custom SVG components for Social links to ensure error-free builds
 const GithubIcon = ({ size = 24, ...props }) => (
@@ -36,19 +37,19 @@ export default function Footer() {
           {/* Column 1: Brand details */}
           <div className="footer-col brand-col">
             <a href="#home" className="footer-logo">
-              <Leaf className="footer-logo-icon" />
+              <LeafLogo className="footer-logo-icon" width={32} height={32} />
               <h3>Rishikesh Greens Cafe</h3>
             </a>
             <p className="footer-brand-desc">
               Fresh Food, Pure Taste, and Memorable Moments. Rishikesh's premier vegetarian cafe serving premium North Indian, South Indian, Chinese, and Street Food.
             </p>
-            <div className="cafe-socials">
+            <nav className="cafe-socials" aria-label="Social media links">
               <a 
                 href="https://www.instagram.com/rksh_greens_cafe/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="cafe-social-icon"
-                aria-label="Instagram"
+                aria-label="Follow us on Instagram"
               >
                 <InstagramIcon size={20} />
               </a>
@@ -57,40 +58,42 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="cafe-social-icon"
-                aria-label="Google Maps"
+                aria-label="Find us on Google Maps"
               >
                 <MapPin size={20} />
               </a>
-            </div>
+            </nav>
           </div>
 
           {/* Column 2: Quick links */}
           <div className="footer-col links-col">
             <h4>Quick Links</h4>
-            <ul className="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#menu">Our Menu</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#reviews">Testimonials</a></li>
-              <li><a href="#events">Events</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
+            <nav className="footer-links">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Our Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Testimonials</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
           </div>
 
           {/* Column 3: Contact & Location */}
           <div className="footer-col contact-col">
             <h4>Contact Info</h4>
-            <ul className="footer-contact-details">
-              <li>
-                <MapPin className="detail-icon" />
+            <address className="footer-contact-details">
+              <p>
+                <MapPin className="detail-icon" size={18} />
                 <span>Lane No. 6, Khadri Rd, Shyampur, Rishikesh, Uttarakhand 249204</span>
-              </li>
-              <li>
-                <Phone className="detail-icon" />
+              </p>
+              <p>
+                <Phone className="detail-icon" size={18} />
                 <a href="tel:+919927355375">+91 99273 55375</a>
-              </li>
-            </ul>
+              </p>
+            </address>
           </div>
         </div>
 

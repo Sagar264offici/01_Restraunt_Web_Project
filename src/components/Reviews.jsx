@@ -77,10 +77,10 @@ export default function Reviews() {
   }, [activeIndex]);
 
   return (
-    <section id="reviews" className="reviews-section">
+    <section id="reviews" className="reviews-section" aria-labelledby="reviews-title">
       <div className="container">
         <div className="section-header">
-          <h2>Guest Testimonials</h2>
+          <h2 id="reviews-title">Guest Testimonials</h2>
           <p>
             Read what our happy diners say about their experiences at Rishikesh
             Greens Cafe.
@@ -121,15 +121,15 @@ export default function Reviews() {
 
           <div ref={sliderWrapperRef} className="testimonial-slide-wrapper">
             {REVIEWS.map((rev, idx) => (
-              <div
+              <article
                 key={idx}
                 className={`testimonial-card glass-panel ${idx === activeIndex ? "active" : ""}`}
                 ref={(el) => (slideRefs.current[idx] = el)}
               >
-                <Quote className="quote-icon" />
-                <div className="review-stars">
+                <Quote className="quote-icon" aria-hidden="true" />
+                <div className="review-stars" aria-label={`${rev.stars} out of 5 stars`}>
                   {[...Array(rev.stars)].map((_, i) => (
-                    <Star key={i} className="star-icon filled" />
+                    <Star key={i} className="star-icon filled" aria-hidden="true" />
                   ))}
                 </div>
                 <p className="review-comment">"{rev.comment}"</p>
@@ -138,7 +138,7 @@ export default function Reviews() {
                   <span className="reviewer-role">{rev.role}</span>
                   <span className="review-date">• {rev.date}</span>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 

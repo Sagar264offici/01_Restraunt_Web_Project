@@ -32,22 +32,22 @@ const ADVANTAGES = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="why-choose-us-section">
+    <section id="why-choose-us" className="why-choose-us-section" aria-labelledby="why-title">
       <div className="container">
         <div className="section-header">
-          <h2>Why Choose Rishikesh Greens</h2>
+          <h2 id="why-title">Why Choose Rishikesh Greens</h2>
           <p>We pride ourselves on offering healthy meals, high hygiene, and a dining experience that feels like home.</p>
         </div>
 
         <div className="advantages-grid">
           {ADVANTAGES.map((adv, idx) => (
-            <div key={idx} className="advantage-card glass-panel">
-              <div className="icon-wrapper">
+            <article key={idx} className="advantage-card glass-panel">
+              <div className="icon-wrapper" aria-hidden="true">
                 {adv.icon}
               </div>
               <h3 className="advantage-title">{adv.title}</h3>
               <p className="advantage-desc">{adv.description}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

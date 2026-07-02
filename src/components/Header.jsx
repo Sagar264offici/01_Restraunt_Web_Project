@@ -1,7 +1,8 @@
-import { Leaf, Menu as MenuIcon, Moon, Sun, X } from "lucide-react";
+import { Menu as MenuIcon, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import "./Header.css";
 import { MENU_CATEGORIES } from "./MenuData";
+import LeafLogo from "./LeafLogo";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-container">
         <a href="#home" className="logo">
-          <Leaf className="logo-icon" />
+          <LeafLogo className="logo-icon" width={40} height={40} />
           <div className="logo-text">
             <span className="logo-title">Rishikesh Greens</span>
             <span className="logo-subtitle">Cafe & Restaurant</span>

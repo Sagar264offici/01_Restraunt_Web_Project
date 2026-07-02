@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rishikesh-greens-cafe.vercel.app/sitemap.xml
+Sitemap: https://rishikeshgreenscafe.com/sitemap.xml

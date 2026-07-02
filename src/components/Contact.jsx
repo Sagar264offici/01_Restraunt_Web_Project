@@ -45,10 +45,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="contact-section" aria-labelledby="contact-title">
       <div className="container">
         <div className="section-header">
-          <h2>Find & Contact Us</h2>
+          <h2 id="contact-title">Find & Contact Us</h2>
           <p>Book your dining table or drop by for a fresh vegetarian feast. We are open daily.</p>
         </div>
 
@@ -56,29 +56,31 @@ export default function Contact() {
           {/* Column 1: Info Panel & Google Maps */}
           <div className="info-panel-column">
             <div className="contact-info-cards">
-              <div className="info-card glass-panel">
-                <MapPin className="info-icon" />
+              <article className="info-card glass-panel">
+                <MapPin className="info-icon" aria-hidden="true" />
                 <div className="info-text">
                   <h3>Address</h3>
-                  <p>Lane No. 6, Khadri Rd, near Paras Public School, Delhi Farm, Shyampur, Rishikesh, Uttarakhand 249204</p>
+                  <address>Lane No. 6, Khadri Rd, near Paras Public School, Delhi Farm, Shyampur, Rishikesh, Uttarakhand 249204</address>
                 </div>
-              </div>
+              </article>
 
-              <div className="info-card glass-panel">
-                <Phone className="info-icon" />
+              <article className="info-card glass-panel">
+                <Phone className="info-icon" aria-hidden="true" />
                 <div className="info-text">
                   <h3>Phone / Booking</h3>
                   <a href="tel:+919927355375" className="contact-link">+91 99273 55375</a>
                 </div>
-              </div>
+              </article>
 
-              <div className="info-card glass-panel">
-                <Clock className="info-icon" />
+              <article className="info-card glass-panel">
+                <Clock className="info-icon" aria-hidden="true" />
                 <div className="info-text">
                   <h3>Opening Hours</h3>
-                  <p>Monday - Sunday<br />10:00 AM - 11:00 PM</p>
+                  <time dateTime="10:00">
+                    <p>Monday - Sunday<br />10:00 AM - 11:00 PM</p>
+                  </time>
                 </div>
-              </div>
+              </article>
             </div>
 
             {/* Google Maps IFrame */}
@@ -91,7 +93,7 @@ export default function Contact() {
                 allowFullScreen="" 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Rishikesh Greens Cafe Location Map"
+                title="Rishikesh Greens Cafe Location Map - Lane No. 6, Khadri Road, Shyampur, Rishikesh"
               />
             </div>
           </div>

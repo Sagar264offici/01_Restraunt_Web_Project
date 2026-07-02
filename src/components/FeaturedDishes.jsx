@@ -34,42 +34,49 @@ const FEATURED = [
 
 export default function FeaturedDishes() {
   return (
-    <section id="featured-dishes" className="featured-section">
+    <section id="featured-dishes" className="featured-section" aria-labelledby="featured-title">
       <div className="container">
         <div className="section-header">
-          <h2>Signature Delicacies</h2>
+          <h2 id="featured-title">Signature Delicacies</h2>
           <p>Handpicked specialties recommended by our head chef for a memorable dining experience.</p>
         </div>
 
         <div className="featured-grid">
           {FEATURED.map((dish, index) => (
-            <div key={index} className="featured-card glass-panel">
-              <div className="img-container">
-                <img src={dish.image} alt={dish.name} className="featured-img" />
+            <article key={index} className="featured-card glass-panel">
+              <figure className="img-container">
+                <img 
+                  src={dish.image} 
+                  alt={`${dish.name} - ${dish.desc}`}
+                  className="featured-img"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
                 <span className="badge-tag">{dish.badge}</span>
-              </div>
+              </figure>
               <div className="featured-info">
                 <div className="title-row">
                   <div className="veg-title">
-                    <span className="badge-veg"></span>
+                    <span className="badge-veg" aria-label="Vegetarian"></span>
                     <h3>{dish.name}</h3>
                   </div>
                   <span className="featured-price">{dish.price}</span>
                 </div>
                 <p className="featured-desc">{dish.desc}</p>
                 <div className="featured-card-footer">
-                  <div className="rating">
-                    <Star className="star-filled" />
-                    <Star className="star-filled" />
-                    <Star className="star-filled" />
-                    <Star className="star-filled" />
-                    <Star className="star-filled" />
+                  <div className="rating" aria-label="5 out of 5 stars rating">
+                    <Star className="star-filled" aria-hidden="true" />
+                    <Star className="star-filled" aria-hidden="true" />
+                    <Star className="star-filled" aria-hidden="true" />
+                    <Star className="star-filled" aria-hidden="true" />
+                    <Star className="star-filled" aria-hidden="true" />
                     <span className="rating-count">(5.0)</span>
                   </div>
                   <a href="#menu" className="order-cta-link">View Details</a>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

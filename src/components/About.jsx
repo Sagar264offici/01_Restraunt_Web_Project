@@ -1,28 +1,35 @@
 import React from 'react';
-import { Check, Leaf, Heart } from 'lucide-react';
+import { Check, Heart } from 'lucide-react';
 import './About.css';
+import LeafLogo from './LeafLogo';
 
 export default function About() {
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section" aria-labelledby="about-title">
       <div className="container">
         <div className="about-grid">
           {/* Left Column: Premium Photo Collage */}
           <div className="about-images">
-            <div className="main-img-wrapper">
+            <figure className="main-img-wrapper">
               <img 
                 src="/images/restaurant-interior.png" 
-                alt="Rishikesh Greens Cafe Interior" 
+                alt="Rishikesh Greens Cafe Interior - Comfortable seating area with premium ambiance"
                 className="about-img main-img"
+                width="500"
+                height="400"
               />
-            </div>
-            <div className="sub-img-wrapper glass-panel">
+              <figcaption>Cafe Interior</figcaption>
+            </figure>
+            <figure className="sub-img-wrapper glass-panel">
               <img 
                 src="/images/restaurant-outdoor.png" 
-                alt="Chef preparing fresh vegetarian meal" 
+                alt="Rishikesh Greens Cafe outdoor garden area with natural seating"
                 className="about-img sub-img"
+                width="400"
+                height="300"
               />
-            </div>
+              <figcaption>Outdoor Garden Area</figcaption>
+            </figure>
             <div className="experience-badge">
               <span className="years">🌿</span>
               <span className="exp-text">Pure Taste Guaranteed</span>
@@ -30,12 +37,12 @@ export default function About() {
           </div>
 
           {/* Right Column: Story & Commitments */}
-          <div className="about-text-content">
+          <article className="about-text-content">
             <div className="tagline">
-              <Leaf className="tagline-icon" />
+              <LeafLogo width={20} height={20} aria-hidden="true" />
               <span>Our Story</span>
             </div>
-            <h2 className="about-title">
+            <h2 className="about-title" id="about-title">
               Crafting Memorable Vegetarian Dining Experiences
             </h2>
             <p className="about-description">
@@ -48,7 +55,7 @@ export default function About() {
             <ul className="commitments-list">
               <li>
                 <div className="check-icon-wrapper">
-                  <Check className="check-icon" />
+                  <Check className="check-icon" aria-hidden="true" />
                 </div>
                 <div>
                   <strong>Pure Vegetarian Kitchen:</strong> Strictly separated utensils and workspaces for complete spiritual purity.
@@ -56,7 +63,7 @@ export default function About() {
               </li>
               <li>
                 <div className="check-icon-wrapper">
-                  <Check className="check-icon" />
+                  <Check className="check-icon" aria-hidden="true" />
                 </div>
                 <div>
                   <strong>Fresh Ingredients Daily:</strong> 100% natural, local spices and premium vegetables, never frozen.
@@ -64,7 +71,7 @@ export default function About() {
               </li>
               <li>
                 <div className="check-icon-wrapper">
-                  <Check className="check-icon" />
+                  <Check className="check-icon" aria-hidden="true" />
                 </div>
                 <div>
                   <strong>Warm Hospitality:</strong> A friendly, home-like space designed to host groups, families, and celebrations.
@@ -75,7 +82,7 @@ export default function About() {
             <div className="about-ctas">
               <a href="#menu" className="btn btn-gold">Explore Our Menu</a>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

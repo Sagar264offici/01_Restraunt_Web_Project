@@ -20,13 +20,15 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className="hero-section" aria-labelledby="hero-title">
       {/* Background Slideshow */}
       {HERO_IMAGES.map((imgUrl, index) => (
         <div
           key={imgUrl}
           className={`hero-bg-slide ${index === currentSlide ? "active" : ""}`}
           style={{ backgroundImage: `url(${imgUrl})` }}
+          role="img"
+          aria-hidden={index !== currentSlide}
         />
       ))}
 
@@ -38,11 +40,11 @@ export default function Hero() {
       <div className="container hero-container">
         <div className="hero-content">
           <div className="rating-badge fade-in-up">
-            <Star className="star-icon" />
+            <Star className="star-icon" aria-hidden="true" />
             <span>4.7+ Rated Cafe in Rishikesh</span>
           </div>
 
-          <h1 className="hero-title fade-in-up">
+          <h1 className="hero-title fade-in-up" id="hero-title">
             Fresh Food, Pure Taste,
             <br />
             <span className="text-gold">Memorable Moments</span>
@@ -56,10 +58,10 @@ export default function Hero() {
 
           <div className="hero-ctas fade-in-up">
             <a href="#menu" className="btn btn-gold">
-              <Compass className="btn-icon" /> View Menu
+              <Compass className="btn-icon" aria-hidden="true" /> View Menu
             </a>
             <a href="tel:+919927355375" className="btn btn-primary">
-              <Phone className="btn-icon" /> Call Now
+              <Phone className="btn-icon" aria-hidden="true" /> Call Now
             </a>
             <a
               href="https://www.google.com/maps/dir//Rishikesh+Greens+Cafe,+Lane+No.+6,+Khadri+Rd,+near+Paras+Public+School,+Delhi+Farm,+Shyampur,+Rishikesh,+Uttarakhand+249204"
@@ -71,7 +73,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="hero-tour-strip fade-in-up">
+          <nav className="hero-tour-strip fade-in-up" aria-label="Quick navigation">
             <a href="#menu" className="tour-pill">
               Explore the menu
             </a>
@@ -81,7 +83,7 @@ export default function Hero() {
             <a href="#contact" className="tour-pill">
               Reserve a table
             </a>
-          </div>
+          </nav>
         </div>
       </div>
 

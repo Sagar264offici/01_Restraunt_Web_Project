@@ -24,10 +24,10 @@ export default function Menu() {
   const fullItems = showFullMenu ? filteredItems : [];
 
   return (
-    <section id="menu" className="menu-section">
+    <section id="menu" className="menu-section" aria-labelledby="menu-title">
       <div className="container">
         <div className="section-header">
-          <h2>Our Culinary Menu</h2>
+          <h2 id="menu-title">Our Culinary Menu</h2>
           <p>
             Carefully prepared with pure local ingredients and traditional
             aromatic recipes.
@@ -37,22 +37,26 @@ export default function Menu() {
         {/* Search & Filter Controls */}
         <div className="menu-controls glass-panel">
           <div className="search-bar-wrapper">
-            <Search className="search-icon" />
+            <label htmlFor="menu-search" className="sr-only">Search menu items</label>
+            <Search className="search-icon" aria-hidden="true" />
             <input
+              id="menu-search"
               type="text"
               placeholder="Search paneer, dosa, pasta, mocktails..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="menu-search-input"
+              aria-label="Search menu items by name or description"
             />
           </div>
 
-          <div className="category-tabs">
+          <div className="category-tabs" role="group" aria-label="Menu categories">
             {MENU_CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={`category-tab-btn ${activeCategory === cat.id ? "active" : ""}`}
+                aria-pressed={activeCategory === cat.id}
               >
                 {cat.name}
               </button>
@@ -63,21 +67,23 @@ export default function Menu() {
         {/* Grid List */}
         <div className="menu-grid">
           {previewItems.map((item, idx) => (
-            <div key={idx} className="menu-card glass-panel">
-              <div className="menu-card-image-wrapper">
+            <article key={idx} className="menu-card glass-panel">
+              <figure className="menu-card-image-wrapper">
                 <img
                   src={item.image}
-                  alt={item.name}
+                  alt={`${item.name} - ${item.description || 'Premium vegetarian dish'}`}
                   className="menu-card-image"
                   loading="lazy"
+                  width="300"
+                  height="250"
                 />
                 {item.tag && <span className="menu-card-tag">{item.tag}</span>}
-              </div>
+              </figure>
 
               <div className="menu-card-content">
                 <div className="menu-card-title-row">
                   <div className="menu-card-title">
-                    <span className="badge-veg" title="Pure Vegetarian"></span>
+                    <span className="badge-veg" title="Pure Vegetarian" aria-label="Vegetarian dish"></span>
                     <h3>{item.name}</h3>
                   </div>
                 </div>
@@ -89,7 +95,7 @@ export default function Menu() {
 
                 <div className="menu-card-footer">
                   {item.isDual ? (
-                    <div className="dual-price-tag">
+                    <div className="dual-price-tag" aria-label={`Price: Half ${item.halfPrice}, Full ${item.fullPrice}`}>
                       <span className="price-label">
                         Half:{" "}
                         <span className="price-val">{item.halfPrice}</span>
@@ -101,11 +107,11 @@ export default function Menu() {
                       </span>
                     </div>
                   ) : (
-                    <span className="single-price-tag">{item.price}</span>
+                    <span className="single-price-tag" aria-label={`Price: ${item.price}`}>{item.price}</span>
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -136,18 +142,20 @@ export default function Menu() {
 
             <div className="menu-grid full-menu-grid">
               {fullItems.map((item, idx) => (
-                <div key={`full-${idx}`} className="menu-card glass-panel">
-                  <div className="menu-card-image-wrapper">
+                <article key={`full-${idx}`} className="menu-card glass-panel">
+                  <figure className="menu-card-image-wrapper">
                     <img
                       src={item.image}
-                      alt={item.name}
+                      alt={`${item.name} - ${item.description || 'Premium vegetarian dish'}`}
                       className="menu-card-image"
                       loading="lazy"
+                      width="300"
+                      height="250"
                     />
                     {item.tag && (
                       <span className="menu-card-tag">{item.tag}</span>
                     )}
-                  </div>
+                  </figure>
                   <div className="menu-card-content">
                     <div className="menu-card-title-row">
                       <div className="menu-card-title">
